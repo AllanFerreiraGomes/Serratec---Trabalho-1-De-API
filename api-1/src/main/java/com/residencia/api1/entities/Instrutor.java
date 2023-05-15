@@ -63,4 +63,12 @@ public class Instrutor {
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
 	}
+
+	public List<Turma> getTurma() {
+		return turma;
+	}
+
+	public void setTurma(List<Turma> turma) {
+		this.turma = turma;
+	}
 }

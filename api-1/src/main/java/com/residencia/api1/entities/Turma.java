@@ -59,4 +59,6 @@ public class Turma {
 	public void setId_instrutor(Instrutor id_instrutor) {
 		this.id_instrutor = id_instrutor;
 	}
+	
+	
 }
