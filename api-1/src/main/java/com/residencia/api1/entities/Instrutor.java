@@ -1,10 +1,13 @@
 package com.residencia.api1.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -23,11 +26,11 @@ public class Instrutor {
 	@Column(name = "nome")
 	private String nome;
 	
-	@OneToOne(mappedBy = "instrutor")
+	@OneToOne(mappedBy = "id_instrutor")
     private Telefone telefone;
 	
-	@OneToOne(mappedBy = "turma")
-    private Turma turma;
+	@OneToMany(mappedBy = "id_instrutor")
+    private List<Turma> turma;
 
 	public Integer getId() {
 		return id;
@@ -59,13 +62,5 @@ public class Instrutor {
 
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
-	}
-
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
 	}
 }
