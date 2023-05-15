@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +22,12 @@ public class Instrutor {
 	
 	@Column(name = "nome")
 	private String nome;
+	
+	@OneToOne(mappedBy = "instrutor")
+    private Telefone telefone;
+	
+	@OneToOne(mappedBy = "turma")
+    private Turma turma;
 
 	public Integer getId() {
 		return id;
@@ -44,5 +51,21 @@ public class Instrutor {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Telefone getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(Telefone telefone) {
+		this.telefone = telefone;
+	}
+
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 }

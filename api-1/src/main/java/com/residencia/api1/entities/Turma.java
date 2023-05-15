@@ -1,10 +1,13 @@
 package com.residencia.api1.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +26,9 @@ public class Turma {
 	private String diaSemana;
 
 	//FK idInstrutor
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_instrutor", referencedColumnName = "id")
+	private Instrutor id_instrutor;
 	
 	public Integer getId() {
 		return id;
@@ -46,5 +52,13 @@ public class Turma {
 
 	public void setDiaSemana(String diaSemana) {
 		this.diaSemana = diaSemana;
+	}
+
+	public Instrutor getId_instrutor() {
+		return id_instrutor;
+	}
+
+	public void setId_instrutor(Instrutor id_instrutor) {
+		this.id_instrutor = id_instrutor;
 	}
 }
