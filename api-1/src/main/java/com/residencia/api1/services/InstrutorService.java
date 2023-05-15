@@ -9,7 +9,7 @@ import com.residencia.api1.entities.Instrutor;
 import com.residencia.api1.repositories.InstrutorRepository;
 
 @Service
-public class IntrutorService {
+public class InstrutorService {
 	@Autowired
 	InstrutorRepository instrutorRepository;
 	
