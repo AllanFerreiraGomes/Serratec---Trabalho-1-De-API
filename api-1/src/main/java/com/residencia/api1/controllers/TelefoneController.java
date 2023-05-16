@@ -51,11 +51,15 @@ public class TelefoneController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delTelefone(@PathVariable Integer id) {
-		Boolean resp = telefoneService.deleteTelefone(id);
-		if (resp)
-			return new ResponseEntity<>(resp, HttpStatus.OK);
-		//
-		else
-			return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		if (telefoneService.getTelefoneById(id) != null) {
+			Boolean resp = telefoneService.deleteTelefone(id);
+			if (resp)
+				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
+			else
+				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		} else {
+			return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+		}
 	}
 }

@@ -56,8 +56,8 @@ public class Turma {
 		return idInstrutor;
 	}
 
-	public void setId_instrutor(Instrutor idInstrutor) {
-		this.idInstrutor = idInstrutor;
+	public void setId_instrutor(Instrutor id_instrutor) {
+		this.idInstrutor = id_instrutor;
 	}
 	
 	

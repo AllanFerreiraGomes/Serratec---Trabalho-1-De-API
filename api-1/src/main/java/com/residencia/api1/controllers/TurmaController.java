@@ -51,11 +51,15 @@ public class TurmaController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delTurma(@PathVariable Integer id) {
-		Boolean resp = turmaService.deleteTurma(id);
-		if (resp)
-			return new ResponseEntity<>(resp, HttpStatus.OK);
-		//
-		else
-			return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		if (turmaService.getTurmaById(id) != null) {
+			Boolean resp = turmaService.deleteTurma(id);
+			if (resp)
+				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
+			else
+				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		} else {
+			return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+		}
 	}
 }
