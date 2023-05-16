@@ -25,14 +25,14 @@ public class Telefone {
 	//FK para id_instrutor
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id")
-	private Instrutor id_instrutor;
+	private Instrutor idInstrutor;
 	
 	public Instrutor getId_instrutor() {
-		return id_instrutor;
+		return idInstrutor;
 	}
 
 	public void setId_instrutor(Instrutor id_instrutor) {
-		this.id_instrutor = id_instrutor;
+		this.idInstrutor = id_instrutor;
 	}
 
 	public int getNumero() {

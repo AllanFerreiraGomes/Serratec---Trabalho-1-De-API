@@ -54,11 +54,15 @@ public class InstrutorController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delInstrutor(@PathVariable Integer id) {
-		Boolean resp = instrutorService.deleteInstrutor(id);
-		if (resp)
-			return new ResponseEntity<>(resp, HttpStatus.OK);
-		//
-		else
-			return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		if (instrutorService.getInstrutorById(id) != null) {
+			Boolean resp = instrutorService.deleteInstrutor(id);
+			if (resp)
+				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
+			else
+				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
+		} else {
+			return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+		}
 	}
 }
