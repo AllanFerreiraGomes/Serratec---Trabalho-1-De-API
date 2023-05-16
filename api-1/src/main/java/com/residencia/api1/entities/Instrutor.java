@@ -26,10 +26,10 @@ public class Instrutor {
 	@Column(name = "nome")
 	private String nome;
 	
-	@OneToOne(mappedBy = "id_instrutor")
+	@OneToOne(mappedBy = "idInstrutor")
     private Telefone telefone;
 	
-	@OneToMany(mappedBy = "id_instrutor")
+	@OneToMany(mappedBy = "idInstrutor")
     private List<Turma> turma;
 
 	public Integer getId() {

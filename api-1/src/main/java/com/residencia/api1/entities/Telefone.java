@@ -22,19 +22,10 @@ public class Telefone {
 	@Column(name = "numero")
 	private int numero;
 	
-	//FK para id_instrutor
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id")
-	private Instrutor id_instrutor;
+	private Instrutor idInstrutor;
 	
-	public Instrutor getId_instrutor() {
-		return id_instrutor;
-	}
-
-	public void setId_instrutor(Instrutor id_instrutor) {
-		this.id_instrutor = id_instrutor;
-	}
-
 	public int getNumero() {
 		return numero;
 	}
@@ -49,5 +40,13 @@ public class Telefone {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Instrutor getIdInstrutor() {
+		return idInstrutor;
+	}
+
+	public void setIdInstrutor(Instrutor idInstrutor) {
+		this.idInstrutor = idInstrutor;
 	}
 }

@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.residencia.api1.entities.Instrutor;
 import com.residencia.api1.services.InstrutorService;
 
-
-
 @RestController 
 @RequestMapping("/instrutores")
 public class InstrutorController {
