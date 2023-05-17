@@ -34,11 +34,11 @@ public class Instrutor {
 	@Column(name = "nome")
 	private String nome;
 	
-	@OneToOne(mappedBy = "idInstrutor")
+	@OneToOne(mappedBy = "instrutor")
     private Telefone telefone;
 	
-	@OneToMany(mappedBy = "idInstrutor")
-    private List<Turma> turma;
+	@OneToMany(mappedBy = "instrutor")
+    private List<Turma> turmas;
 
 	public Integer getId() {
 		return id;
@@ -72,11 +72,12 @@ public class Instrutor {
 		this.telefone = telefone;
 	}
 
-	public List<Turma> getTurma() {
-		return turma;
+	public List<Turma> getTurmas() {
+		return turmas;
 	}
 
-	public void setTurma(List<Turma> turma) {
-		this.turma = turma;
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
+	
 }

@@ -31,7 +31,7 @@ public class Telefone {
 	
 	@OneToOne
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id")
-	private Instrutor idInstrutor;
+	private Instrutor instrutor;
 	
 	public int getNumero() {
 		return numero;
@@ -49,11 +49,13 @@ public class Telefone {
 		this.id = id;
 	}
 
-	public Instrutor getIdInstrutor() {
-		return idInstrutor;
+	public Instrutor getInstrutor() {
+		return instrutor;
 	}
 
-	public void setIdInstrutor(Instrutor idInstrutor) {
-		this.idInstrutor = idInstrutor;
+	public void setInstrutor(Instrutor idInstrutor) {
+		this.instrutor = idInstrutor;
 	}
+	
+	
 }

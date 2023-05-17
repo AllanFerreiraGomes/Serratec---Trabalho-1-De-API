@@ -43,8 +43,8 @@ public class TelefoneController {
 		return new ResponseEntity<>(telefoneService.saveTelefone(telefone), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Telefone> updateTelefone(@RequestBody Telefone telefone, @PathVariable Integer id) {
+	@PutMapping
+	public ResponseEntity<Telefone> updateTelefone(@RequestBody Telefone telefone, Integer id) {
 		return new ResponseEntity<>(telefoneService.updateTelefone(telefone, id), HttpStatus.OK);
 
 	}

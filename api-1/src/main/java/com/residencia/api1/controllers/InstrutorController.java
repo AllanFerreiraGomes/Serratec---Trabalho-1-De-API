@@ -44,8 +44,8 @@ public class InstrutorController {
 	}
 
 
-	 @PutMapping("/{id}")
-	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor,@PathVariable Integer id) {
+	 @PutMapping
+	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
 		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id), HttpStatus.OK);
 
 	}

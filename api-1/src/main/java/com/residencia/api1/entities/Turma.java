@@ -34,7 +34,7 @@ public class Turma {
 
 	@ManyToOne
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id")
-	private Instrutor idInstrutor;
+	private Instrutor instrutor;
 	
 	public Integer getId() {
 		return id;
@@ -60,12 +60,12 @@ public class Turma {
 		this.diaSemana = diaSemana;
 	}
 
-	public Instrutor getId_instrutor() {
-		return idInstrutor;
+	public Instrutor getInstrutor() {
+		return instrutor;
 	}
 
-	public void setId_instrutor(Instrutor id_instrutor) {
-		this.idInstrutor = id_instrutor;
+	public void setInstrutor(Instrutor id_instrutor) {
+		this.instrutor = id_instrutor;
 	}
 	
 	

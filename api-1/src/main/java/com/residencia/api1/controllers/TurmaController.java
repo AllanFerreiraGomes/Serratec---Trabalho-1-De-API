@@ -43,8 +43,8 @@ public class TurmaController {
 		return new ResponseEntity<>(turmaService.saveTurma(turma), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Turma> updateTurma(@RequestBody Turma turma, @PathVariable Integer id) {
+	@PutMapping
+	public ResponseEntity<Turma> updateTurma(@RequestBody Turma turma, Integer id) {
 		return new ResponseEntity<>(turmaService.updateTurma(turma, id), HttpStatus.OK);
 
 	}
