@@ -44,14 +44,10 @@ public class InstrutorController {
 	}
 
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, @PathVariable Integer id) {
-		Instrutor instrutorAtualizado = instrutorService.getInstrutorById(id);
-		if (instrutorAtualizado != null) {
-			return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id), HttpStatus.OK);	
-		} else {
-			return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id), HttpStatus.BAD_REQUEST);	
-		}
+	 @PutMapping
+	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
+		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id), HttpStatus.OK);
+
 	}
 
 	@DeleteMapping("/{id}")
@@ -60,6 +56,7 @@ public class InstrutorController {
 			Boolean resp = instrutorService.deleteInstrutor(id);
 			if (resp)
 				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
 			else
 				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
 		} else {

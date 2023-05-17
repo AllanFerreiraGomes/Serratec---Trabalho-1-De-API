@@ -26,12 +26,7 @@ public class TelefoneService {
 	}
 	
 	public Telefone updateTelefone(Telefone telefone, Integer id) {
-		Telefone telefoneAtualizado = telefoneRepository.findById(id).orElse(null);
-		if (telefoneAtualizado != null) {
-			return telefoneRepository.save(telefone);
-		} else {
-			return null;
-		}
+		return telefoneRepository.save(telefone);
 	}
 	
 	public boolean deleteTelefone(Integer id) {

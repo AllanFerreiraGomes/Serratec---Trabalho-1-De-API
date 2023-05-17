@@ -43,14 +43,10 @@ public class TurmaController {
 		return new ResponseEntity<>(turmaService.saveTurma(turma), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Turma> updateTurma(@RequestBody Turma turma, @PathVariable Integer id) {
-		Turma turmaAtualizado = turmaService.getTurmaById(id);
-		if (turmaAtualizado != null) {
-			return new ResponseEntity<>(turmaService.updateTurma(turma, id), HttpStatus.OK);	
-		} else {
-			return new ResponseEntity<>(turmaService.updateTurma(turma, id), HttpStatus.BAD_REQUEST);	
-		}
+	@PutMapping
+	public ResponseEntity<Turma> updateTurma(@RequestBody Turma turma, Integer id) {
+		return new ResponseEntity<>(turmaService.updateTurma(turma, id), HttpStatus.OK);
+
 	}
 
 	@DeleteMapping("/{id}")
@@ -59,6 +55,7 @@ public class TurmaController {
 			Boolean resp = turmaService.deleteTurma(id);
 			if (resp)
 				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
 			else
 				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
 		} else {

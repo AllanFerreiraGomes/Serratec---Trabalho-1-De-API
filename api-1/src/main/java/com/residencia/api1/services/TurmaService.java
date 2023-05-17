@@ -26,12 +26,7 @@ public class TurmaService {
 	}
 	
 	public Turma updateTurma(Turma turma, Integer id) {
-		Turma turmaAtualizado = turmaRepository.findById(id).orElse(null);
-		if (turmaAtualizado != null) {
-			return turmaRepository.save(turma);
-		} else {
-			return null;
-		}
+		return turmaRepository.save(turma);
 	}
 	
 	public boolean deleteTurma(Integer id) {

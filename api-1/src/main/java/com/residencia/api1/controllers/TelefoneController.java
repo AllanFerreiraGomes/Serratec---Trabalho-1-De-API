@@ -43,14 +43,9 @@ public class TelefoneController {
 		return new ResponseEntity<>(telefoneService.saveTelefone(telefone), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Telefone> updateTelefone(@RequestBody Telefone telefone, @PathVariable Integer id) {
-		Telefone telefoneAtualizado = telefoneService.getTelefoneById(id);
-		if (telefoneAtualizado != null) {
-			return new ResponseEntity<>(telefoneService.updateTelefone(telefone, id), HttpStatus.OK);	
-		} else {
-			return new ResponseEntity<>(telefoneService.updateTelefone(telefone, id), HttpStatus.BAD_REQUEST);	
-		}
+	@PutMapping
+	public ResponseEntity<Telefone> updateTelefone(@RequestBody Telefone telefone, Integer id) {
+		return new ResponseEntity<>(telefoneService.updateTelefone(telefone, id), HttpStatus.OK);
 
 	}
 
@@ -60,6 +55,7 @@ public class TelefoneController {
 			Boolean resp = telefoneService.deleteTelefone(id);
 			if (resp)
 				return new ResponseEntity<>(resp, HttpStatus.OK);
+			//
 			else
 				return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
 		} else {
