@@ -25,8 +25,13 @@ public class InstrutorService {
 		return instrutorRepository.save(instrutor);
 	}
 	
-	public Instrutor updateInstrutor(Instrutor instrutor, Integer id) {
-		return instrutorRepository.save(instrutor);
+	public Instrutor updateInstrutor(Instrutor instrutor, Integer id)  {
+		Instrutor instrutorAtualizado = instrutorRepository.findById(id).orElse(null);
+		if (instrutorAtualizado != null) {
+			return instrutorRepository.save(instrutor);
+		} else {
+			return null;
+		}
 	}
 	
 	public boolean deleteInstrutor(Integer id) {
